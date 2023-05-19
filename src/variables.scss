@@ -1,0 +1,27 @@
+
+//MAX WIDTH FOR MOBILE
+$width-for-tablet-design: 1007px;
+$width-for-mobile-design: 767px;
+$width-for-small-mobile-design: 438px;
+
+$base-padding: 15%;
+
+//DESIGN FOR MOBILE
+@mixin for-mobile-design() {
+    @media only screen and (max-width: $width-for-mobile-design) {
+      @content;
+    }
+  }
+  
+  @mixin for-small-mobile-design() {
+    @media only screen and (max-width: $width-for-small-mobile-design) {
+      @content;
+    }
+  }
+  
+  @mixin for-tablet-design() {
+    @media only screen and (max-width: $width-for-tablet-design) {
+      @content;
+    }
+  }
+  

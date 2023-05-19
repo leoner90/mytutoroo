@@ -1,0 +1,229 @@
+@import '../../variables';
+
+.Footer {
+    background-color: rgb(25, 29, 41);
+    border-radius: 5px 5px 0 0;
+    //position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 999999;
+    min-height: 40vh;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center center;
+    color: #fff;
+    display: flex;
+    flex-direction: row;
+    margin-top: 100px;
+}
+
+.footerImage {
+    flex: 1;
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin: 15px;
+    margin-right: 12%;
+    position: relative;
+    
+}
+
+.footerNavBar {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    a {
+        color : #fff;
+        display: block;
+        text-align: left;
+        cursor: pointer;
+        margin-top: 15px;
+        font-size: 1vw;
+    }
+   
+}
+
+.footerContacts {
+    visibility: hidden;
+    flex: 1;
+    border-top: 50px solid #1f2330;
+    background-color: #1f2330;
+    padding: 5px;
+    margin: 0 40px;
+    margin-top: -50px;
+    margin-left: 12%;
+    border-top-left-radius: 15%;
+    border-top-right-radius: 2%; 
+    font-size: 1vw;
+    padding: 0 20px 10px 20px;
+    text-align: left;
+}
+
+.FooterSlogan {
+  margin-top: 15% ;
+  font-size: 1.8vw;
+  text-shadow: 2px 2px 2px rgb(31, 154, 0);
+}
+
+.animation {
+    animation: 2.35s ease-out 0s 1 getFooter;
+    visibility: visible;
+}
+
+
+
+@keyframes getFooter {
+    0% {
+      transform: translateY(100%);
+    }
+    100% {
+      transform: translateY(0);
+      
+    }
+  }
+ 
+
+
+
+
+@keyframes windmillRotation {
+    0% {
+      transform: rotate(0);
+    }
+    100% {
+      transform: rotate(360);
+      
+    }
+  }
+
+  .WindmillBase {
+    position: absolute;
+    top: 47%;
+    height: 150px;
+    left: 34%;
+    z-index: 9999;
+    transform: rotateY(69deg);
+  }
+
+#div1 {
+  position: relative;
+  height: 150px;
+  width: 150px;
+ 
+ 
+}
+
+#div2 {
+  animation: windmillRotation 8s infinite linear ;
+  background-size: cover;
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  transform: rotate(360deg);
+  
+}
+
+  .ActiveWindmillWrapper {
+    bottom: 75px;
+    position: absolute;
+  transform: rotateY(25deg);
+ 
+  }
+
+  .windmillSpeed2 {
+    animation: none !important;
+    animation: windmillRotation 4s infinite linear !important;
+  }
+
+  .windmillSpeed3 {
+    animation: none !important;
+    animation: windmillRotation 3s infinite linear !important;
+  }
+
+ .footeMenuFontAwesome {
+  margin-right: 5px;
+ }
+
+ .center {
+  margin: 0 20%;
+ }
+
+ .footerNavBarHeader {
+  text-align: left;
+  margin: 10px 10px 10px 3%;
+ }
+
+ .footerLogo {
+  display: flex;
+    justify-content: center;
+    align-items: center;
+ }
+
+ .ContactsWrapper {
+  > div {
+    flex: 1 90%;
+  }
+ }
+
+
+ .footerContactSlotImg {
+    height: 100%;
+    width:80px;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 90%;
+    padding: 10px;
+ }
+
+ .footerContactSlotText{
+  &>p {
+    font-size: 0.9vw;
+    margin:  0;
+  }
+ }
+
+ .footerContactSlotHeader {
+  margin:  0;
+ }
+
+ @media only screen and (max-width: 1000px) {
+  .Footer {
+    flex-direction: column;
+  }
+
+  .footerContacts  {
+    margin: 0;
+    border-radius: 0;
+    padding:  5% ;
+    border: none;
+    background-color: #1f2330;
+  }
+
+  .ContactsWrapper {
+    padding-left: 0;
+  }
+
+  .footerImage {
+    
+    min-height: 220px;
+    margin: 0;
+    margin-top: 5%;
+    background-size: cover;
+    border-radius: 10px;
+  }
+
+  .FooterSlogan {
+    // margin-top: 5
+    display: none;
+  }
+
+  .footerNavBar {
+    padding: 0 5% ;
+  }
+
+ }

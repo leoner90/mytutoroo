@@ -1,0 +1,183 @@
+@import '../../variables';
+
+.MainLogo {
+  animation: 1.85s ease-out 0s 1 slideInFromLeft;
+  z-index: 2;
+  height: 50px;
+  width: 50px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-right: 5px;
+}
+
+.CompanyName {
+  margin-left: 10px;
+}
+
+.navBarLinksWrapper > a {
+  font-size: 0.8vw;
+  text-decoration: none;
+  color: #000000;
+  font-weight: bold;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.navBarLinksWrapper > a::after {
+    content: ' | ';
+}
+
+.MenuShowHideBtn {
+  font-weight: bold;
+  font-size: 4vw;
+  color: #dfffff;
+  cursor: pointer;
+  display: none;
+  padding: 10px;
+}
+
+.active {
+  color: #004e61 !important;
+  display: inline-block;
+}
+
+  .NavBarWrapper { 
+  z-index: 99;
+  transition: 0.35s;
+  min-height: 95px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: -1px;
+  display: flex;
+  align-items: center;
+  background-color: #dfedff;
+  border-bottom: 1px solid #ccc;
+}
+
+.navBarLinksWrapper {
+  padding-left: 50px;
+}
+
+.not-pinned {
+  min-height: 55px;
+  transition: 0.75s;
+}
+
+.NavBar {
+  padding: 0px 15%;
+  height: 100%;
+  border-radius: 0 0 5px 5px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center; 
+  width: 100%;
+}
+
+ 
+
+
+//ANIMATION
+@keyframes slideInFromLeft {
+  0% {
+    transform: rotate(-180deg);
+    filter: grayscale(100%);
+  }
+  40% {
+    filter: grayscale(100%);
+  }
+  100% {
+    transform: rotate(0);
+    filter: grayscale(0%);
+  }
+}
+
+@keyframes slideInFromTop{
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+//MOBILE
+@media only screen and (max-width: 800px) {
+  .MainLogo {
+    height: 50px;
+    width: 50px;
+  }
+
+  .slogan {
+    font-size: 2vw !important;
+  }
+
+  .NavBar > a,
+  .MainHeaderTitle,
+  .mainSlogan  {
+      font-size: 3.5vw !important;
+  }
+
+  .NavBar {
+    animation: 0.65s ease-out 0s 1 slideInFromTop;
+    position: fixed;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    display: none;
+    padding: 0;
+    background-color:#ccc;
+  }
+
+  .NavBar > a {
+    text-align: left;
+    background-color: #7e7e7e;
+    width: 100%;
+    margin-bottom: 5px;
+    padding: 10px 15px;
+    &::after {
+      content: '';
+    }
+  }
+
+
+
+  .MenuShowHideBtn {
+    display: block;
+  }
+}
+
+
+@media only screen and (max-width: 800px) {
+  .NavBarWrapper {
+      padding-right: 30px;
+      text-align: right;
+      background-color: #212b35;
+      min-height: 55px;
+  }
+  .navBarLinksWrapper {
+    padding-left: 0;
+    text-align: left;
+    > a {
+      font-size: 3.5vw;
+      text-decoration: none;
+      color: #000000;
+      font-weight: bold;
+      margin: 10% 0;
+      cursor: pointer;
+      display: block;
+
+      &::after {
+        content: '';
+    }
+
+    }
+  }
+    
+ 
+}
+

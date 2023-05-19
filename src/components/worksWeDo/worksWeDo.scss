@@ -1,0 +1,72 @@
+@import '../../variables';
+
+.worksWeDoWrapper {
+  animation: 0.65s ease-out 0s 1 worksWeDoTransit;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    // flex: 1 0 26%;
+    width: 25.5%;
+    margin: 3% 7% 3% 0;
+    background-color: rgb(25, 29, 41);
+    border-radius: 5%;
+    min-height: 21vh;
+    font-size: 0.8vw;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 30px;
+    box-shadow: 0 0 15px rgb(0 153 154);
+}
+
+ 
+
+.worksWeDoWrapperLogo {
+  
+    transform: rotate(2deg);
+    width: 76%;
+    margin: 0 auto;
+    padding: 12%;
+    height: auto;
+    border-bottom: 1px solid transparent ;
+}
+
+ 
+.worksWeDoLogoWrapper {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.worksWeDoHeader {
+  flex: 1;
+  padding: 5px 0;
+  margin: 0;
+  border-top: 1px solid #333 ;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 -6px 10px -6px rgb(0 153 154);
+}
+
+
+@keyframes worksWeDoTransit{
+  0% {
+    transform: translateX(-200%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+
+@media only screen and (max-width: 900px) {
+  .worksWeDoWrapper{
+    margin-left: 2% !important;
+    margin-right: 2% !important;
+  }
+  
+
+}

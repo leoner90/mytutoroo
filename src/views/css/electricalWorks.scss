@@ -1,0 +1,91 @@
+@import '../../variables';
+
+.electritionWorksWrapper {
+    min-height: 70vh;
+    background-color: rgb(25, 29, 41);
+    display: flex;
+    padding: 0 15% 0 12%;
+  
+    text-align: left;
+    color: #fff; 
+}
+
+.electritionWorksImg{
+    margin: -3% 35px 40px -2%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    flex: 1;
+    border-radius: 7px;
+    box-shadow: 0 0 10px #000;
+}
+
+.electricPowerWorks {
+    flex: 1;
+    padding: 20px;
+    padding-right: 0;
+}
+
+.electricPowerWorksHeader {
+    font-size: 1.3vw;
+    color: #d6d6d6;
+    text-shadow: 0.5px 0.5px rgb(0 153 154);
+    text-align: center;
+    letter-spacing: 0.5px;
+    margin: 10px 0 ;
+    
+}
+
+
+@media only screen and (max-width: 900px) {
+    .electritionWorksWrapper {
+      min-height: 1vh;
+      flex-direction: column;
+      padding: 0;
+       
+    }
+
+    .electritionWorksImg{
+      min-height: 30vh;
+      margin: 0 ;
+      border-radius: 0;
+    }
+
+    .electricPowerWorks {
+ 
+      padding: 0 5%;
+    }
+  }
+.electricPowerWorks{
+  .worksWeDoContainer {
+    
+    .worksWeDoWrapper {
+        animation: none;
+        animation: 0.65s ease-out 0s 1 ElectroWorksWeDoTransit;
+        background-color: rgb(226 233 255);
+        color: rgb(25, 29, 41);
+        margin-left: 6% ;
+        margin-right: 0 ;
+        width: 27%;
+        .worksWeDoLogoWrapper{
+            .worksWeDoWrapperLogo{
+                width: 100%;
+                padding: 0;
+                
+            }
+        }
+    }
+    .worksWeDoHeader{
+        line-height: 3.8;
+        
+    }
+  }
+}
+
+@keyframes ElectroWorksWeDoTransit{
+    0% {
+      transform: translateX(200%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }

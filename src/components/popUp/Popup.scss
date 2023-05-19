@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Uchen&display=swap');
+@import '../../variables';
+
+.viewPostModalWrapper {
+    background-color: #000000a1;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 99;
+    right: 0;
+    display: none;
+    height: 100%;
+    left: 0;
+    overflow-x: hidden;
+    position: fixed;
+    top: 0;
+    z-index: 9999;
+   
+}
+
+.viewPostModalContent {
+    background-color: #4e4c4c;
+    margin: 0 6%;
+    position: relative;
+    padding: 5% 4% 3% 4%;
+    min-height: 100%;
+    //display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    color:#000;
+}
+
+.postViewCloseBtn {
+    position: absolute;
+    cursor: pointer;
+    top: 30px;
+    right: 40px;
+    padding: 7px 12px;
+    font-size: 0.9vw;
+    border-radius: 10px;
+    background-color: rgb(254, 132, 136);
+    border: 2px solid rgb(138, 0, 0);
+    font-weight: bold;
+    color: #fff;
+}
+
+@media only screen and (max-width: 800px) {
+    .viewPostModalContent {
+        margin: 0 2%;
+    }
+}
+
+.PopUpContentWrapper {
+    
+    & > .homePageProjectWrapper {
+        height: 80vh;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        &:hover {
+            animation: none;
+            z-index: 99;
+            
+            border: none;
+        }
+       
+        animation: none;
+        & > .itemInfo {
+            display: none !important;
+        }
+    }
+}

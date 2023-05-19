@@ -1,0 +1,40 @@
+@import '../../variables';
+
+.gallerySectionWrapper {
+    background-color: rgb(25, 29, 41);
+    color: #fff;
+    min-height: 70vh;
+    border-radius: 5px;
+    padding: 2% 15% 20px 15%;
+ 
+}
+
+.slick-dots li.slick-active button:before,
+.slick-dots li button:before   { 
+    color: #fff !important;
+}
+
+.slick-dots {
+    position:static !important;
+}
+
+.galleryHeader {
+    font-size: 1.3vw;
+    color: #cccccc;
+    text-shadow: 0.5px 0.5px rgb(0 153 154);
+    text-align: center;
+    letter-spacing: 0.5px;
+    margin: 0 0 3% 0;
+ 
+}
+
+
+@media only screen and (max-width: 1000px) {
+    .gallerySectionWrapper {
+ 
+        min-height: 1vh;
+        
+     
+    }
+
+}

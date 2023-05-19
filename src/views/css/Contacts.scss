@@ -1,0 +1,123 @@
+@import '../../variables';
+
+
+.Contacts {
+    padding: 3.5%  $base-padding;
+    display: flex;
+    flex-direction: row;
+}
+
+.ContactsDetails {
+  flex: 1;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+
+
+ 
+
+  .ContactsWrapper {
+    padding: 9px 25px;
+    padding-right: 0;
+    border-radius: 3px;
+    font-size: 1vw;
+    display: flex;
+    flex-wrap: wrap;
+
+  }
+
+  .ContactsWrapper > div {
+    padding-bottom: 3px;
+    box-shadow: 0 4px 2px -3px #dae2e9;
+    // box-shadow: 0 3px 2px -2px #dae2e9;
+    flex: 1 0 40%; 
+    display: flex;
+    align-items: center;
+    margin-top: 8%;
+  }
+
+
+ 
+  .ContactFormHeader {
+    font-family: 'Kaushan Script', cursive;
+    color: #03898b;
+    font-size: 1.4vw;
+    text-align: center;
+  }
+
+.FormContainer {
+  padding: 0 30px 40px 30px;
+  border-radius: 7px;
+  position: relative;
+  flex: 1;
+  -moz-box-shadow: 0 0 5px #ccc;
+  -webkit-box-shadow: 0 0 5px #ccc;
+  box-shadow: 0 0 5px #ccc;
+}
+
+.contactSlotImg{
+  height: 100%;
+  width:80px;
+  margin-right: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 90%;
+  padding: 10px;
+}
+
+.contactsFontAwesome {
+  color: #03898b;
+  font-size: 2.2vw;
+}
+
+
+.googleMapWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 0 $base-padding;
+}
+
+.ContactFormHeader {
+  margin: 12px 0;
+}
+
+@media only screen and (max-width: 900px) {
+  .Contacts > * , 
+  .ContactsWrapper > p ,
+  .ContactFormHeader,
+  .contactsFontAwesome  {
+    font-size: 3vw !important;
+  }
+
+  .Contacts {
+    padding: 3.5% 5%;
+    flex-direction: column;
+  }
+  .googleMapWrapper {
+    margin: 0 5%;
+  }
+
+}
+
+.openTime {
+ 
+flex: 1 0 100% !important;
+ 
+ 
+}
+
+.contactSlotHeader {
+  margin: 5px 0;
+}
+
+ .contactSlotText {
+  &>p {
+    margin: 10px 0;
+  }
+ }
+
+
+ 

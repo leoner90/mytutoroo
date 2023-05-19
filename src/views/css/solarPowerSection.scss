@@ -1,0 +1,70 @@
+@import '../../variables';
+
+.solarWorksSectionWrapper {
+    border-radius: 5px;
+    min-height: 70vh;
+    background-color: #fff;
+    display: flex;
+    padding: 0 15% 0 15%;
+    text-align: left;
+}
+
+.solarPowerWorks {
+    flex: 1;
+    padding: 20px 20px 0 0 ;
+}
+
+.solarPowerWorksImg {
+    background-size: cover;
+    background-repeat: no-repeat;
+    flex: 1;
+    border-radius: 7px;
+    margin: 30px 20px 60px 0 ;
+    box-shadow: 0 0 10px #000;
+}
+
+.worksWeDoContainer {
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom: 3px dotted #ccc;
+    margin: 5% 0;
+}
+
+.SolarPowerWorksHeader {
+    font-size: 1.3vw;
+    color: #191d29;
+    text-shadow: 0.5px 0.5px rgb(0 153 154);
+    text-align: center;
+    letter-spacing: 0.5px;
+    margin: 10px 0 ;
+    
+}
+
+@media only screen and (max-width: 900px) {
+    .solarWorksSectionWrapper {
+         flex-direction: column-reverse;
+         min-height: 1vh;
+         padding: 0 5%;
+       
+    }
+
+    .solarPowerWorks {
+        padding-right: 0;
+    }
+
+    .worksWeDoContainer {
+        justify-content: center;
+    }
+
+    .solarPowerWorksImg {
+        min-height: 30vh;
+        margin: 30px 20px 0 0 ;
+    }
+  }
+
+  .solarWorksSectionWrapper {
+    margin: 2.5% 0;
+  }
+
+
+ 
