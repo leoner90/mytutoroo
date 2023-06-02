@@ -2,9 +2,14 @@
 
 
 .Contacts {
-    padding: 3.5%  $base-padding;
+  padding-bottom: 4%;
     display: flex;
     flex-direction: row;
+}
+
+.contactsContainer {
+  padding: 3.5%  $base-padding 100px $base-padding;
+
 }
 
 .ContactsDetails {
@@ -13,41 +18,37 @@
   display: flex;
   flex-direction: column;
 }
-
-
- 
-
-  .ContactsWrapper {
+  
+.ContactsWrapper {
     padding: 9px 25px;
     padding-right: 0;
     border-radius: 3px;
     font-size: 1vw;
     display: flex;
+    flex: 1;
     flex-wrap: wrap;
 
-  }
+}
 
-  .ContactsWrapper > div {
+.ContactsWrapper > div {
     padding-bottom: 3px;
     box-shadow: 0 4px 2px -3px #dae2e9;
-    // box-shadow: 0 3px 2px -2px #dae2e9;
     flex: 1 0 40%; 
     display: flex;
     align-items: center;
-    margin-top: 8%;
-  }
+    margin: 3.5%;
+}
 
-
- 
-  .ContactFormHeader {
-    font-family: 'Kaushan Script', cursive;
+.ContactFormHeader {
+    // font-family: 'Kaushan Script', cursive;
     color: #03898b;
     font-size: 1.4vw;
     text-align: center;
-  }
+    margin: 12px 0;
+}
 
 .FormContainer {
-  padding: 0 30px 40px 30px;
+  padding: 0 30px 3% 30px;
   border-radius: 7px;
   position: relative;
   flex: 1;
@@ -72,52 +73,92 @@
   font-size: 2.2vw;
 }
 
-
 .googleMapWrapper {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  margin: 0 $base-padding;
+  margin: 0 ;
 }
 
-.ContactFormHeader {
-  margin: 12px 0;
+ 
+ 
+.contactSlotText >p{
+  font-size: 0.9vw;
+}
+ 
+ 
+
+@include forSmallDesktop {
+  .contactsContainer {
+    padding: 3.5%  $small-display-padding 100px $small-display-padding !important;
+  }
+
+  .contactSlotText >p,
+  .contactSlotText{
+    font-size: 1.4vw ;
+  }
+
+  .ContactFormHeader{
+    font-size:1.6vw;
+  }
 }
 
-@media only screen and (max-width: 900px) {
-  .Contacts > * , 
-  .ContactsWrapper > p ,
-  .ContactFormHeader,
-  .contactsFontAwesome  {
-    font-size: 3vw !important;
+@include for-tablet-design {
+  .ContactFormHeader{
+    margin-top: 10%;
+    font-size: 1.8vw;
+  }
+
+  .contactsContainer {
+    padding: 3.5%  $base-padding-tablet 100px $base-padding-tablet !important;
+  }
+
+ 
+  .contactsFontAwesome
+  {
+    font-size: 3.5vw !important;
   }
 
   .Contacts {
-    padding: 3.5% 5%;
+   
     flex-direction: column;
   }
   .googleMapWrapper {
     margin: 0 5%;
   }
 
-}
+  .contactSlotText {
+    font-size: 1.6vw;
+    &>p {
+      font-size: 1.6vw;
+      margin: 10px 0;
+    }
+  }
 
-.openTime {
- 
-flex: 1 0 100% !important;
- 
- 
 }
 
 .contactSlotHeader {
   margin: 5px 0;
 }
 
- .contactSlotText {
-  &>p {
-    margin: 10px 0;
+
+
+@include for-mobile-design {
+  .contactsContainer {
+    padding: 3.5%  $base-padding-mobile 100px $base-padding-mobile !important;
   }
- }
 
+  .contactSlotText,
+  .contactSlotText >p {
+    font-size: 2.5vw;
+  }
+  
 
- 
+  .ContactFormHeader {
+    font-size: 3vw;
+  }
+
+  .contactsFontAwesome  {
+    font-size: 6vw !important;
+  }
+}

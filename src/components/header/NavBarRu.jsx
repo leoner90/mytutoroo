@@ -7,15 +7,24 @@ import Logo from './Logo.jsx'
 import React, { useEffect } from "react";
 import { Link } from "react-scroll";
 
+
+ 
+ 
 function NavBar() {
     const [navbarStatus, setNavbarStatus] = useState('');
 
     function linkGenerator( id , name){
-        return (   
-            <Link to={id} spy={true} hashSpy={true} smooth={true} offset={-80} duration={500}  onClick={() => { showMobileNavBar();}}  > 
-                <FontAwesomeIcon className='caretForMobileMenu'  icon={faCaretRight} />
+        return (
+            
+               
+            <Link
+                to={id}
+                spy={true} hashSpy={true} smooth={true} offset={-80} duration={500}
+                onClick={() => { showMobileNavBar();  }} 
+            > <FontAwesomeIcon className='caretForMobileMenu'  icon={faCaretRight} />
                 {name}
             </Link>
+           
         )
     }
 
@@ -35,6 +44,7 @@ function NavBar() {
         const observer = new IntersectionObserver( 
             ([e]) => e.target.classList.toggle("not-pinned", e.intersectionRatio < 1),
             { rootMargin: '0px',  threshold: [1] }
+            
           );
           observer.observe(el);
 });
@@ -55,12 +65,12 @@ function NavBar() {
                 
                 
                 <div className='navBarLinksWrapper'>
-                    {linkGenerator( 'home' , 'PAR MUMS' )}
-                    {linkGenerator( 'solarWorks' , ' SAULES PANEĻI' )}
-                    {linkGenerator( 'electroWorks' , 'ELEKTROINSTALĀCIJA' )} 
-                    {linkGenerator( 'clientProgress' , 'REZULTĀTI' )} 
-                    {linkGenerator( 'portfolio' , 'MUSI DARBI' )}
-                    {linkGenerator( 'contacts' , 'KONTAKTI' )} 
+                    {linkGenerator( 'home' , 'О НАС' )}
+                    {linkGenerator( 'solarWorks' , ' СОЛНЕЧНЫЕ ПАНЕЛИ' )}
+                    {linkGenerator( 'electroWorks' , 'ЭЛЕКТРОМОНТАЖ' )} 
+                    {linkGenerator( 'clientProgress' , 'РЕЗУЛЬТАТЫ' )} 
+                    {linkGenerator( 'portfolio' , 'НАШИ РАБОТЫ' )}
+                    {linkGenerator( 'contacts' , 'КОНТАКТЫ' )} 
                     <Link className='hidden' to={'Footer'}  hashSpy={true} smooth={true} offset={-160} duration={500}> </Link>
                     
                 </div>

@@ -26,8 +26,7 @@ function Footer() {
     entries.forEach(entry => {
       if (entry.intersectionRatio > 0) {
         document.getElementById('footerContacts').classList.add('animation');
-        let unobserve = document.querySelector("#Footer");
-        observer.unobserve(unobserve)
+
       } 
     });
   };
@@ -65,18 +64,18 @@ function Footer() {
        </div>
 
         <div className='ContactsWrapper'> 
-          {ContactSlot(faPhone ,"Telefona numurs: ",'+371 2914 5975')}
-          {ContactSlot(faEnvelope ,"E-pasts: ",'msgrupa.riga@gmail.com')}
-          {ContactSlot(faMapLocationDot ,'Juridiska Adrese: ' , 'Festivāla iela 1 , Rīga, LV-1057')}
+          {ContactSlot(faPhone ,"Номер телефона: ",'+371 2914 5975')}
+          {ContactSlot(faEnvelope ,"Э-почта: ",'msgrupa.riga@gmail.com')}
+          {ContactSlot(faMapLocationDot ,'Юридический Адрес: ' , 'Festivāla iela 1, Rīga, LV-1057')}
           <div className='openTime'>
           <div className='footerContactSlotImg'>
             <FontAwesomeIcon className='contactsFontAwesome' icon={faClock} />
           </div>
           <div className='footerContactSlotText'>
-            <h4 className='footerContactSlotHeader'>  Darba Laiks: </h4>
-            <p>  Pirmdiena - Piektdiena: no 8:00 līdz 19:00 <br />
-            Sestdiena - Brīvdiena <br />
-            Svētdiena - Brīvdiena.
+            <h4 className='footerContactSlotHeader'>  Время работы: </h4>
+              <p>Понедельник - Пятница: с 8:00 до 19:00 <br />
+                  Суббота - Выходной.<br />
+                  Воскресенье - Выходной.
             </p>
             </div>
           </div>
@@ -90,20 +89,17 @@ function Footer() {
       <div className='footerNavBar'>
         <h4 className='footerNavBarHeader'> CITAS LAPAS:</h4>
         <div className='center'>
-          
-           
-          {linkGenerator( 'home' , 'PAR MUMS' )}
-          {linkGenerator( 'solarWorks' , ' SAULES PANEĻI' )}
-          {linkGenerator( 'electroWorks' , 'ELEKTROMONTĀŽA' )} 
-          {linkGenerator( 'clientProgress' , 'REZULTĀTI' )} 
-          {linkGenerator( 'portfolio' , 'MUSI DARBI' )}
-          {linkGenerator( 'contacts' , 'KONTAKTI' )} 
-                 
+          {linkGenerator( 'home' , 'О НАС' )}
+          {linkGenerator( 'solarWorks' , ' СОЛНЕЧНЫЕ ПАНЕЛИ' )}
+          {linkGenerator( 'electroWorks' , 'ЭЛЕКТРОМОНТАЖ' )} 
+          {linkGenerator( 'clientProgress' , 'РЕЗУЛЬТАТЫ' )} 
+          {linkGenerator( 'portfolio' , 'НАШИ РАБОТЫ' )}
+          {linkGenerator( 'contacts' , 'КОНТАКТЫ' )}     
         </div>
       </div>
      
       <div className="footerImage" style={{backgroundImage: `url("img/footeSteticImgMain.png")`}}>
-        <h4 className='FooterSlogan'>ZAĻĀ ENERĢIJA</h4>
+        <h4 className='FooterSlogan'>ЗЕЛЕНАЯ ЭНЕРГЕТИКА</h4>
          {/* WINDMILL */}
          <Windmill size={110}  fromLeft={'3%'}/>
          <Windmill size={75}  fromLeft={'39%'} extraClassName="windmillSpeed2"/>

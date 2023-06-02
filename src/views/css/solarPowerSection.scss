@@ -1,11 +1,12 @@
 @import '../../variables';
 
 .solarWorksSectionWrapper {
+    overflow-x: hidden;
     border-radius: 5px;
     min-height: 70vh;
     background-color: #fff;
     display: flex;
-    padding: 0 15% 0 15%;
+    padding: 2.5% $base-padding 2.5% $base-padding;
     text-align: left;
 }
 
@@ -24,10 +25,15 @@
 }
 
 .worksWeDoContainer {
+    
     display: flex;
     flex-wrap: wrap;
     border-bottom: 3px dotted #ccc;
     margin: 5% 0;
+}
+
+#solarWorksWeDoContainer {
+    visibility: hidden;
 }
 
 .SolarPowerWorksHeader {
@@ -40,14 +46,40 @@
     
 }
 
-@media only screen and (max-width: 900px) {
+.solarWorksTransit {
+    animation: 1s ease-out 0s 1 SolarWorksWeDoTransit;
+    visibility:visible !important;
+}
+
+
+ 
+  @include forSmallDesktop {
     .solarWorksSectionWrapper {
-         flex-direction: column-reverse;
-         min-height: 1vh;
-         padding: 0 5%;
-       
+         padding: 2.5% $small-display-padding ;
     }
 
+    .solarPowerWorksImg {
+        margin: 18% 20px 18% 0;
+    }
+
+    .SolarPowerWorksHeader {
+        font-size: 1.4vw;
+    }
+}
+
+@include for-tablet-design {
+    .SolarPowerWorksHeader {
+        font-size: 1.8vw;
+    }
+
+    .solarWorksSectionWrapper {
+        padding: 2.5%  $base-padding-tablet !important;;
+        flex-direction: column-reverse;
+        min-height: 1vh;
+        padding: 0;
+   }
+
+   
     .solarPowerWorks {
         padding-right: 0;
     }
@@ -57,14 +89,38 @@
     }
 
     .solarPowerWorksImg {
-        min-height: 30vh;
-        margin: 30px 20px 0 0 ;
+        min-height: 50vh;
+        margin: 8% 20px 8% 20px;
+    }
+
+  }
+  
+
+  @include for-mobile-design{
+
+    .SolarPowerWorksHeader {
+        font-size: 3vw;
+    }
+
+    .solarPowerWorksImg {
+        min-height: 35vh;
+        margin: 8% ;
+    }
+
+    .solarWorksSectionWrapper {
+        padding: 2.5% $base-padding-mobile !important;
+   }
+
+   
+  }
+
+  @keyframes SolarWorksWeDoTransit{
+    0% {
+     
+      transform: translateX(-100%);
+    }
+    100% {
+       
+      transform: translateX(0);
     }
   }
-
-  .solarWorksSectionWrapper {
-    margin: 2.5% 0;
-  }
-
-
- 

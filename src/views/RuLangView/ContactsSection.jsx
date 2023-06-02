@@ -1,8 +1,7 @@
-import './css/Contacts.scss'
+import '../css/Contacts.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPhone, faEnvelope,faMapLocationDot , faClock } from '@fortawesome/free-solid-svg-icons'
-import EmailForm from '../components/sendMailForm/EmailForm.jsx'
-
+import EmailForm from '../../components/sendMailForm/EmailFormRu.jsx';
 
 
 function Contacts() {
@@ -20,29 +19,29 @@ function Contacts() {
     }
 
     return (
-    <div>
-        <div id="contacts" className="Contacts">
+    <div id="contacts" className='contactsContainer'>
+        <div  className="Contacts">
             <div className="FormContainer">
                 <EmailForm />
             </div>
             <div className='ContactsDetails'>  
                 <h3 className='ContactFormHeader'>
-                    Kontaktinformācija
+                    Контактная информация
                 </h3>
                 <div className='ContactsWrapper'> 
-                    {ContactSlot(faPhone ,"Telefona numurs: ",'+371 2672 2829')}
-                    {ContactSlot(faEnvelope ,"E-pasts: ",'msgrupa@info.lv')}
-                    {ContactSlot(faMapLocationDot ,'Juridiska Adrese: ' , 'Festivāla iela 1 - 38, Rīga, LV-1057')}
+                    {ContactSlot(faPhone ,"Номер телефона: ",'+371 2914 5975')}
+                    {ContactSlot(faEnvelope ,"Э-почта: ",'msgrupa.riga@gmail.com')}
+                    {ContactSlot(faMapLocationDot ,'Юридический Адрес: ' , 'Festivāla iela 1 , Rīga, LV-1057')}
                     <div className='openTime'>
                         <div className='contactSlotImg'>
                             <FontAwesomeIcon className='contactsFontAwesome' icon={faClock} />
                         </div>
                         <div className='contactSlotText'>
-                            <h4 className='contactSlotHeader'>  Darba Laiks: </h4>
-                            <p>  Pirmdiena - Piektdiena: no 8:00 līdz 17:00 <br />
-                                Sestdiena - : no 10:00 līdz 14:00 <br />
-                                Svētdiena - Brīvdiena.
-                            </p>
+                            <h4 className='contactSlotHeader'> Время работы: </h4>
+                             <p>Понедельник - Пятница: с 8:00 до 19:00 <br />
+                                 Суббота - : Выходной <br />
+                                 Воскресенье - Выходной.
+                             </p>
                         </div>
                     </div>
                 </div>       

@@ -1,9 +1,13 @@
 @import 'variables';
 
+.overflowHidden {
+  overflow: hidden;
+}
 
 body {
   margin: 0;
 }
+
 .App {
   text-align: center;
   background-color: #fff;
@@ -17,7 +21,6 @@ body {
 *{
   word-break: break-word;
 }
-
 
 .BodyWrapper {
   min-height: 100vh;
@@ -59,29 +62,21 @@ body {
 }
 
 
-
- 
-
 @media only screen and (max-width: 800px) {
   .BodyWrapper {
     margin: 0;
   }
   
-  * {
-    font-family: Verdana, sans-serif !important;
-  }
+ 
  
 }
 
-
-
-
-
-
-
-  
 @include for-mobile-design{
   .BodyWrapper {
     margin: 0;
   }
+}
+
+html, body {
+  overflow-x: hidden;
 }

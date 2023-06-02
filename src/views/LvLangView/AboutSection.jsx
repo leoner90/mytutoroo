@@ -53,14 +53,14 @@ function AboutSection() {
                 <div className='HomeAboutText'>
                     <h1 className="textAnimation">
                         SIA MsGrupa <br />
-                        Установка солнечных панелей и электромонтажные работы <br />
-                        На рынке с 2014 года <br />
+                        Saules Panelu Uzstādīšana un Elektromontāžas darbi <br />
+                        Tirgū kopš 2014 gada <br />
                     </h1>
                     <Link
                         to={`contacts`} 
                         smooth={true}
                     > 
-                        <button className='contactsBtn'>КОНТАКТЫ</button>
+                        <button className='contactsBtn'>KONTAKTI</button>
                     </Link>
                 </div>
                 

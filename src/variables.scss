@@ -1,20 +1,18 @@
-
 //MAX WIDTH FOR MOBILE
-$width-for-tablet-design: 1007px;
+$width-forSmallDesktop: 1280px;
+$width-for-tablet-design: 992px;
 $width-for-mobile-design: 767px;
-$width-for-small-mobile-design: 438px;
 
 $base-padding: 15%;
+$small-display-padding: 8%;
+$base-padding-tablet: 5%;
+$base-padding-mobile: 2.5%;
 
 //DESIGN FOR MOBILE
-@mixin for-mobile-design() {
-    @media only screen and (max-width: $width-for-mobile-design) {
-      @content;
-    }
-  }
+
   
-  @mixin for-small-mobile-design() {
-    @media only screen and (max-width: $width-for-small-mobile-design) {
+  @mixin forSmallDesktop() {
+    @media only screen and (max-width: $width-forSmallDesktop) {
       @content;
     }
   }
@@ -25,3 +23,9 @@ $base-padding: 15%;
     }
   }
   
+  @mixin for-mobile-design() {
+    @media only screen and (max-width: $width-for-mobile-design) {
+      @content;
+    }
+  }
+

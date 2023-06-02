@@ -11,7 +11,7 @@ function EmailForm () {
     const [userEmail, setUserEmail] = useState('');
     const [userPhone, setUserPhone] = useState([]);
     const [errSuccessMsg, setErrSuccessMsg] = useState([]);
-
+    
     function toggleEmailLoader() {
         let loader = document.getElementById('loaderWrapper');
         loader.style.display = "none";
@@ -48,14 +48,16 @@ function EmailForm () {
         loader.style.display = "flex";
         fetch(url , requestOptions)
         .then((response) => response.json())
+        
         .then(data => {
+
             if(data === 200) {
                 setTimeout(toggleEmailLoader, 500);
                 setTimeout(clearAllMsgShowSuccces, 500);
                 
         
             } else {
-                setErrSuccessMsg(data['lv']);     
+                setErrSuccessMsg(data['ru']);
             }
             setTimeout(toggleEmailLoader, 500);
             
@@ -75,21 +77,21 @@ function EmailForm () {
 
     return (
         <div className='emailFormWrapper'>
-            <h3 className='ContactFormHeader'>Sazināties Ar Mums</h3>
+            <h3 className='ContactFormHeader'>Связаться с нами</h3>
             <div id='loaderWrapper'>
             <div className="loader"></div>
-            <p>Nosūtīšana...</p>
+            <p>Отправка...</p>
             </div>
 
             <div id='SuccesWrapper'>
             <div className="success">
             <p>
                 <FontAwesomeIcon className='successMsgAwesomeIcon'  icon={faEnvelopeCircleCheck} />
-                Ziņojums ir veiksmīgi nosūtīts
+                Сообщение успешно отправлено
             </p>
             </div>
             <button className='sendOnotherMsgBtn' onClick={()=> sendOnotherMsg()}>
-                Nosūtiet vēl vienu   
+                Отправить еще одно 
                 <FontAwesomeIcon className='sendOnotherMsgAwasomeIcon'  icon={faPlus} />
             </button>
             </div>
@@ -107,37 +109,37 @@ function EmailForm () {
 
             <form className='emailForm' >
                 <div className='NameSectionWrapper'>
-                    <div className='NameLabel'>Vārds, Uzvārds *</div>
+                    <div className='NameLabel'>Имя Фамилия *</div>
                     <div className='formFullNameWrapper'>
-                        <input type="text" value={senderName} id="fname" name="firstname" placeholder="Vārds" onChange={(e)=> setSenderName(e.target.value)}/>
-                        <input type="text" value={senderSurname} id="lname" name="lastname" placeholder="Uzvārds" onChange={(e)=> setSenderSurname(e.target.value)}/>
+                        <input type="text" value={senderName} id="fname" name="firstname" placeholder="Имя" onChange={(e)=> setSenderName(e.target.value)}/>
+                        <input type="text" value={senderSurname} id="lname" name="lastname" placeholder="Фамилия" onChange={(e)=> setSenderSurname(e.target.value)}/>
                     </div>
                 </div>
 
                 <div className='NameSectionWrapper'>
-                    <div className='NameLabel'>Telefona numurs *</div>
+                    <div className='NameLabel'>Номер телефона *</div>
                     <div className='formFullNameWrapper'>
-                        <input type="text" value={userPhone}  name="phone" placeholder="Telefona numurs" onChange={(e)=> setUserPhone(e.target.value)}/>
+                        <input type="text" value={userPhone}  name="phone" placeholder="Номер телефона" onChange={(e)=> setUserPhone(e.target.value)}/>
                     </div>
                 </div>
 
                 <div className='NameSectionWrapper'>
-                    <div className='NameLabel'>E-pasts *</div>
+                    <div className='NameLabel'>Э-почта *</div>
                     <div className='formFullNameWrapper'>
-                        <input type="text" value={userEmail}  name="email" placeholder="E-pasts" onChange={(e)=> setUserEmail(e.target.value)}/>
+                        <input type="text" value={userEmail}  name="email" placeholder="Э-почта" onChange={(e)=> setUserEmail(e.target.value)}/>
                     </div>
                 </div>
 
                 <div className='NameSectionWrapper messageWraper'>
-                    <div className='NameLabel'>Ziņojums*</div>
+                    <div className='NameLabel'>Сообщение*</div>
                     <div className='formFullNameWrapper textAreaWrapper'>
-                        <textarea value={userMsg} placeholder="Ziņojuma teksts" onChange={(e)=> setuserMsg(e.target.value)}></textarea>
+                        <textarea value={userMsg} placeholder="Сообщение" onChange={(e)=> setuserMsg(e.target.value)}></textarea>
                     </div>
                 </div>
 
                 <button className='ContactFormSubmitBtn' type="submit" onClick={(e)=> sendEmail(e)}> 
                     <FontAwesomeIcon className='faEnvelopeSendMsg' icon={faEnvelope} /> 
-                    NOSŪTĪT
+                    ОТПРАВИТЬ
                 </button>
             </form>
         </div>

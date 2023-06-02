@@ -1,4 +1,6 @@
 @import '../../variables';
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@1,200&display=swap');
+ 
 
 .MainLogo {
   animation: 1.85s ease-out 0s 1 slideInFromLeft;
@@ -9,10 +11,20 @@
   background-repeat: no-repeat;
   background-position: center;
   margin-right: 5px;
+  cursor: pointer;
 }
 
 .CompanyName {
-  margin-left: 10px;
+  font-family: 'Serif Pro', serif;
+  text-shadow: 0.1px 0.1px #c0c0c0;
+  margin-left: 5px;
+  letter-spacing: 0.65px;
+  font-size: 0.95vw;
+  font-style: italic;
+  // font-weight: bold;
+  display: flex;
+  align-items: center;
+
 }
 
 .navBarLinksWrapper > a {
@@ -27,6 +39,9 @@
 .navBarLinksWrapper > a::after {
     content: ' | ';
 }
+.hidden {
+  display: none;
+}
 
 .MenuShowHideBtn {
   font-weight: bold;
@@ -34,12 +49,11 @@
   color: #dfffff;
   cursor: pointer;
   display: none;
-  padding: 10px;
+  padding: 20px 10px 20px 20px;
 }
 
 .active {
   color: #004e61 !important;
-  display: inline-block;
 }
 
   .NavBarWrapper { 
@@ -55,17 +69,27 @@
   border-bottom: 1px solid #ccc;
 }
 
+.caretForMobileMenu {
+  display: none;
+}
+
 .navBarLinksWrapper {
   padding-left: 50px;
 }
 
 .not-pinned {
-  min-height: 55px;
+  min-height: 55px !important;
   transition: 0.75s;
+ 
+
+  & .MainLogo {
+    height: 46px;
+    transition: 0.5s;
+  }
 }
 
 .NavBar {
-  padding: 0px 15%;
+  padding: 0px $base-padding;
   height: 100%;
   border-radius: 0 0 5px 5px;
   position: -webkit-sticky;
@@ -78,12 +102,67 @@
   width: 100%;
 }
 
+
+@include forSmallDesktop {
+  .NavBar {
+       padding: 0 $small-display-padding ;
+  }
+
+  .CompanyName,
+  .navBarLinksWrapper > a  {
+    font-size: 1.1vw;
+  }
+
+  .CompanyName{
+    font-size: 1.4vw;
+  }
+}
+
+@include for-tablet-design {
+  .NavBar {
+       padding: 0 $base-padding-tablet;
+  }
+  .navBarLinksWrapper > a  {
+    font-size: 1.2vw;
+  }
+
+  .CompanyName{
+    font-size: 1.6vw;
+  }
+}
+
+@include for-mobile-design {
+  .NavBar  {
+       padding: 0 $base-padding-mobile ;
+       bottom: 0;
+       
+  }
+ 
+  .caretForMobileMenu {
+    display: inline-block;
+    color: #036400;
+    padding-right: 10px;
+    font-size: 4vw;
+  }
+
+  .CompanyName,
+  .navBarLinksWrapper > a {
+    font-size: 3vw;
+    align-items: center;
+    display: flex !important;
+  }
+}
+
  
 
 
 //ANIMATION
 @keyframes slideInFromLeft {
   0% {
+    -webkit-transform: rotate(-180deg);
+    -moz-transform: rotate(-180deg);
+    -ms-transform: rotate(-180deg);
+    -o-transform: rotate(-180deg);
     transform: rotate(-180deg);
     filter: grayscale(100%);
   }
@@ -91,6 +170,10 @@
     filter: grayscale(100%);
   }
   100% {
+    -webkit-transform: rotate(0);
+    -moz-transform: rotate(0);
+    -ms-transform: rotate(0);
+    -o-transform: rotate(0);
     transform: rotate(0);
     filter: grayscale(0%);
   }
@@ -105,24 +188,63 @@
   }
 }
 
+.logoWrapper {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  justify-content: center;
+}
+
+
+
 //MOBILE
-@media only screen and (max-width: 800px) {
+@include for-mobile-design{
+  .DesktopLogo {
+    display: none;
+  }
+  
+  .navBarLinksWrapper >a:last-of-type::before {
+    content: none;
+  }
+
+  .MenuShowHideBtn .logoWrapper {
+    flex: 1;
+  }
+  .logoWrapper{
+    justify-content: normal !important;
+    padding-left: 10%;
+  }
+
   .MainLogo {
-    height: 50px;
-    width: 50px;
+    height: 35px;
+    width: 35px;
+   
   }
-
-  .slogan {
-    font-size: 2vw !important;
-  }
-
-  .NavBar > a,
-  .MainHeaderTitle,
-  .mainSlogan  {
-      font-size: 3.5vw !important;
-  }
-
   .NavBar {
+    justify-content: normal !important;
+  }
+
+  .NavBar .MenuShowHideBtn {
+    color: #fafafa;
+    display: flex;
+    background-color: #212b35;
+    min-height: 70px;
+    svg {
+      padding-right: 30px;
+    }
+  }
+
+  .navBarLinksWrapper  {
+    flex: 1 !important;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .NavBar {
+    overflow-y: auto;
+    overflow-x: hidden;
+    z-index: 99;
     animation: 0.65s ease-out 0s 1 slideInFromTop;
     position: fixed;
     width: 100%;
@@ -130,8 +252,10 @@
     justify-content: center;
     display: none;
     padding: 0;
-    background-color:#ccc;
+    background-color:#e2e9ff;
+    min-height: 100vh
   }
+
 
   .NavBar > a {
     text-align: left;
@@ -144,21 +268,19 @@
     }
   }
 
-
-
   .MenuShowHideBtn {
-    display: block;
+    display: flex;
+    width: 100%;
+    align-items: center;
   }
-}
-
-
-@media only screen and (max-width: 800px) {
+ 
   .NavBarWrapper {
       padding-right: 30px;
       text-align: right;
       background-color: #212b35;
-      min-height: 55px;
+      min-height: 75px ;
   }
+
   .navBarLinksWrapper {
     padding-left: 0;
     text-align: left;
@@ -173,11 +295,8 @@
 
       &::after {
         content: '';
-    }
-
+      }
     }
   }
-    
- 
 }
 

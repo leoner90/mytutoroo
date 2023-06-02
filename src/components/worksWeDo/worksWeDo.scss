@@ -5,20 +5,19 @@
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    // flex: 1 0 26%;
-    width: 25.5%;
-    margin: 3% 7% 3% 0;
+    width: 29.5%;
+    margin: 3% 3% 3% 0;
     background-color: rgb(25, 29, 41);
     border-radius: 5%;
     min-height: 21vh;
-    font-size: 0.8vw;
+    font-size: 0.74vw;
     color: #fff;
     text-align: center;
     margin-bottom: 30px;
     box-shadow: 0 0 15px rgb(0 153 154);
 }
 
- 
+
 
 .worksWeDoWrapperLogo {
   
@@ -42,13 +41,14 @@
 
 .worksWeDoHeader {
   flex: 1;
-  padding: 5px 0;
+  padding: 5px;
   margin: 0;
   border-top: 1px solid #333 ;
   display: flex;
   justify-content: center;
   align-items: center;
   box-shadow: 0 -6px 10px -6px rgb(0 153 154);
+  text-transform: uppercase;
 }
 
 
@@ -62,11 +62,43 @@
 }
 
 
-@media only screen and (max-width: 900px) {
+
+
+@include forSmallDesktop{
+  .worksWeDoWrapper{
+    width: 42.5%;
+    
+  }
+
+  .worksWeDoHeader {
+    font-size: 1.2vw;
+      padding: 15px 5px;
+  }
+
+}
+
+@include for-tablet-design {
+  .worksWeDoWrapper{
+    width: 28.5%;
+  }
+
+  .worksWeDoHeader {
+    font-size: 1.3vw;
+  }
+}
+
+
+@include for-mobile-design{
   .worksWeDoWrapper{
     margin-left: 2% !important;
     margin-right: 2% !important;
   }
-  
+
+ 
+
+  .worksWeDoHeader {
+    padding: 10px 5px;
+    font-size: 1.9vw;
+}
 
 }

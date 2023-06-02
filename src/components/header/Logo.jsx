@@ -1,12 +1,13 @@
 import { Link } from "react-scroll";
 function Logo () {
     return (
-        <div>
+        <div className="logoWrapper">
         <Link to={'home'} className="flex items-center"
+        offset={-120} duration={500}
             smooth={true}
         >
-            <div className="MainLogo" style={{backgroundImage: 'url("logo.png")'}}></div>
-            
+            <div className="MainLogo" style={{backgroundImage: 'url("img/logo.png")'}}></div>
+            <div className='CompanyName'> MSGrupa</div>
         </Link>
         </div>
     )
