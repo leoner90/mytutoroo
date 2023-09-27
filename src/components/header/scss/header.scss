@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+$activeLinkColor : rgb(0, 0, 0);
+.header {
+    background-size: 100% 100%;
+    height: 45vh;
+    padding: 0 15%;
+ }
+ 
+*{
+    word-break: break-all;
+    font-size: 1vw;
+}
+
+.active  {
+    background-color: #c5d2cc;
+}
+
+.active .linkText {
+    font-weight: bold;
+    color: $activeLinkColor;
+}
+
+.headerContacts {
+    color: #6b452b;
+    padding-right: 10px;
+    font-size: 1vw;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+.logo {
+    display: block;
+    width: 100%;
+    height: 70px;
+    padding: 5px;
+    padding-bottom: 0;
+    margin: 0 auto;
+    
+  
+    // @include for-mobile-design() {
+    //   width: 20%;
+    //   float: none;
+    //   display: block;
+    //   margin: 0 auto;
+    // }
+  }
+  
+  .logoWrapper {
+      flex: 1;
+      display: flex;
+    align-items: flex-end;
+  }
+  .smallLogo {
+    padding: 15px ;
+    padding-bottom: 5px;
+    display: none;
+    width: 100%;
+    height: auto;
+    align-items: flex-end;
+  
+    // @include for-mobile-design() {
+    //   display: none;
+    // }
+  }
+.headerContacts {
+    flex: 1;
+}
+.navigation {
+    padding-left: 40px;
+    margin: 16px 0  5px 0;
+}
+.navigation > a {
+    display: inline-block;
+    padding: 10px  12px;
+    box-shadow: 4px 1px 4px -3px #c8d6cf;
+    border-radius: 10px;
+    font-family: 'Roboto', sans-serif;
+    cursor: pointer;
+    font-size: 1vw;
+}
+
+.navigation  a {
+    text-decoration: none;
+    color: #000;
+    font-family: Roboto, serif;
+    font-style: italic;
+    font-weight: 600;
+    font-size: 1vw;
+    line-height: 18px;
+}
+
+.header-main-slogan {
+    font-style: italic;
+    padding-top: 7% ;
+    text-align: center;
+    font-size: 2vw;
+    color: #4B4B4B;
+    font-family: 'Roboto', sans-serif;
+}
+
+.header-slogan {
+    font-size: 1.2vw;
+    color: #4B4B4B;
+    font-style: italic;
+    font-family: Lao Muang Don;
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+}
+
+.header-slogan-delivering {
+    color: #fff;
+    font-size: 1.6vw;
+}
+
+.hide {   
+  -webkit-animation: display-none-transition 1s both;
+  animation: display-none-transition 1s both;
+}
+
+.show {
+    display: block;
+    -webkit-animation: display-show-transition 0.1s both;
+    animation: display-show-transition 0.1s both;
+    animation-delay: 0.4s;
+}
+
+@keyframes display-none-transition {
+    from {
+        opacity: 1;
+        height: 70px;
+      }
+      to {
+         
+        max-height: 0;
+        opacity: 0;
+        height: 0;
+      }
+}
+
+@keyframes display-show-transition {
+    from {
+        transform: translateY(-200px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+}

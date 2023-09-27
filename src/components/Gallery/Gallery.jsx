@@ -7,13 +7,16 @@ function HomePageProjects (props) {
  
 
     return (
-        <div className='homePageProjectWrapper'  style={{backgroundImage: 'url("./workImg/'+ props.imgName + '"'}} >
-            
-            <div className='itemInfo '>
-                <FontAwesomeIcon className="itemInfoFontAwesome" icon={faPlugCircleBolt} />
-                <h4 className='itemInfoHeader'>{props.header}</h4>
-                <h4 className='itemInfoBody'>{props.bodyText}</h4>
-            </div>
+        <div className='homePageProjectWrapper'  >
+          
+               
+                <h4 className='itemInfoHeader'>
+                    <FontAwesomeIcon className="itemInfoFontAwesome" icon={faPlugCircleBolt} />
+                    PARENTS
+                </h4>
+                <p className='itemInfoBody'>{props.bodyText}</p>
+                <p><img className='stars-raiting' src="./img/stars-raiting.png" alt="stars" /></p>
+           
  
         </div>
     )

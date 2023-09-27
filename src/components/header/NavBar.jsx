@@ -55,14 +55,11 @@ function NavBar() {
                 
                 
                 <div className='navBarLinksWrapper'>
-                    {linkGenerator( 'home' , 'PAR MUMS' )}
-                    {linkGenerator( 'solarWorks' , ' SAULES PANEĻI' )}
-                    {linkGenerator( 'electroWorks' , 'ELEKTROINSTALĀCIJA' )} 
-                    {linkGenerator( 'clientProgress' , 'REZULTĀTI' )} 
-                    {linkGenerator( 'portfolio' , 'MUSI DARBI' )}
-                    {linkGenerator( 'contacts' , 'KONTAKTI' )} 
-                    <Link className='hidden' to={'Footer'}  hashSpy={true} smooth={true} offset={-160} duration={500}> </Link>
-                    
+                    {linkGenerator( 'home' , 'HOME' )}
+                    {linkGenerator( 'solarWorks' , 'ABOUT' )}
+                    {linkGenerator( 'electroWorks' , 'PRICES' )} 
+                    {linkGenerator( 'portfolio' , 'TESTAMONIALS' )} 
+                    {linkGenerator( 'contacts' , 'CONTACTS' )}                     
                 </div>
             </div>
         </div>

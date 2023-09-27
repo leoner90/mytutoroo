@@ -1,11 +1,17 @@
 import './worksWeDo.scss'
+import { faPlugCircleBolt} from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 function WorksWeDo(props) {
     return (
         <div className='worksWeDoWrapper'>
             <div className='worksWeDoLogoWrapper'>
-                <img src={"./WorksWeDo/" + props.imgName} className='worksWeDoWrapperLogo' alt="works we do" />
+                <FontAwesomeIcon className="itemInfoFontAwesome" icon={faPlugCircleBolt} />
             </div>
-            <h4 className='worksWeDoHeader'>{props.header}</h4>
+            <div className='servicesContent'>
+                <h4 className='worksWeDoHeader'>{props.header}</h4>
+                <h4 className='worksWeDoFooter'>{props.body}</h4>
+            </div>
+            
         </div>
     )
 }

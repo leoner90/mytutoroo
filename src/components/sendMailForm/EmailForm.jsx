@@ -1,95 +1,76 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTriangleExclamation,faEnvelopeCircleCheck , faPlus , faEnvelope} from '@fortawesome/free-solid-svg-icons'
-import React, {useState } from 'react';
+import { useState,useEffect } from "react";
 import './emailForm.scss'
+import { useSendEmailMutation } from '../../store/services.js'
+import { useSelector } from 'react-redux';
 
 function EmailForm () {
-    let url = `https://cvportfolio.online/portfolio/msgrupa/BackEnd/sendEmail.php`;
+    const [ServerCall, { isError, isLoading }] = useSendEmailMutation();
+    console.log(isError , isLoading )
     const [senderName, setSenderName] = useState('');
-    const [senderSurname, setSenderSurname] = useState('');
     const [userMsg, setuserMsg] = useState('');
     const [userEmail, setUserEmail] = useState('');
     const [userPhone, setUserPhone] = useState([]);
     const [errSuccessMsg, setErrSuccessMsg] = useState([]);
-
+    const [loaderWrapperState, setLoaderWrapperState] = useState('none');
+    const [succesMsgWrapper, setSuccesMsgWrapper] = useState('none');
     function toggleEmailLoader() {
-        let loader = document.getElementById('loaderWrapper');
-        loader.style.display = "none";
+        setLoaderWrapperState('none');
     }
+
+    let errors = useSelector(state => state.sendMail.errors);
+    let success = useSelector(state => state.sendMail.success)
+    useEffect(()=>{
+        setErrSuccessMsg(errors);
+        if(success === 200) {
+            setTimeout(toggleEmailLoader, 500);
+            setTimeout(clearAllMsgShowSuccces, 500);
+        } else  {
+            setTimeout(toggleEmailLoader, 500);
+        }
+    }, [errors,success]);
+
 
     function clearAllMsgShowSuccces(){
         setSenderName('');
-        setSenderSurname('');
         setuserMsg('');
         setUserEmail('');
         setUserPhone('');
         setErrSuccessMsg([])
-        let succesMsgWrapper = document.getElementById('SuccesWrapper');
-        succesMsgWrapper.style.display = "flex";
+        setSuccesMsgWrapper('flex');
     }
 
     function sendEmail(e) {
         e.preventDefault();
         let formData = new FormData();
         formData.append('name', senderName);
-        formData.append('surname', senderSurname);
         formData.append('msg', userMsg);
         formData.append('email', userEmail);
         formData.append('userPhone', userPhone);
-        const requestOptions = {
-            method: 'POST',
-            mode: "cors",
-            enctype: 'multipart/form-data',
-            body: formData
-        }
+        ServerCall(formData);
+        setLoaderWrapperState('flex');
 
-        let loader = document.getElementById('loaderWrapper');
-        
-        loader.style.display = "flex";
-        fetch(url , requestOptions)
-        .then((response) => response.json())
-        .then(data => {
-            if(data === 200) {
-                setTimeout(toggleEmailLoader, 500);
-                setTimeout(clearAllMsgShowSuccces, 500);
-                
-        
-            } else {
-                setErrSuccessMsg(data['lv']);     
-            }
-            setTimeout(toggleEmailLoader, 500);
-            
-      
-        }).catch(err => {
-            setTimeout(toggleEmailLoader, 500);
-            setErrSuccessMsg([])
-        })
     }
-
-    function sendOnotherMsg(){
-        let succesMsgWrapper = document.getElementById('SuccesWrapper');
-        succesMsgWrapper.style.display = "none";
-    }
-
 
 
     return (
         <div className='emailFormWrapper'>
-            <h3 className='ContactFormHeader'>Sazināties Ar Mums</h3>
-            <div id='loaderWrapper'>
+            
+            <div id='loaderWrapper' style={{display: loaderWrapperState}}>
             <div className="loader"></div>
-            <p>Nosūtīšana...</p>
+            <p>Sending...</p>
             </div>
 
-            <div id='SuccesWrapper'>
+            <div id='SuccesWrapper' style={{display: succesMsgWrapper}}>
             <div className="success">
             <p>
                 <FontAwesomeIcon className='successMsgAwesomeIcon'  icon={faEnvelopeCircleCheck} />
                 Ziņojums ir veiksmīgi nosūtīts
             </p>
             </div>
-            <button className='sendOnotherMsgBtn' onClick={()=> sendOnotherMsg()}>
-                Nosūtiet vēl vienu   
+            <button className='sendOnotherMsgBtn' onClick={()=> setSuccesMsgWrapper('none')}>
+                Send on more 
                 <FontAwesomeIcon className='sendOnotherMsgAwasomeIcon'  icon={faPlus} />
             </button>
             </div>
@@ -107,29 +88,28 @@ function EmailForm () {
 
             <form className='emailForm' >
                 <div className='NameSectionWrapper'>
-                    <div className='NameLabel'>Vārds, Uzvārds *</div>
+                    <div className='NameLabel'>Name *</div>
                     <div className='formFullNameWrapper'>
-                        <input type="text" value={senderName} id="fname" name="firstname" placeholder="Vārds" onChange={(e)=> setSenderName(e.target.value)}/>
-                        <input type="text" value={senderSurname} id="lname" name="lastname" placeholder="Uzvārds" onChange={(e)=> setSenderSurname(e.target.value)}/>
+                        <input type="text" value={senderName} id="fname" name="firstname" placeholder="Vārds" onChange={(e)=> setSenderName(e.target.value)}/>       
                     </div>
                 </div>
 
                 <div className='NameSectionWrapper'>
-                    <div className='NameLabel'>Telefona numurs *</div>
+                    <div className='NameLabel'>Phone  *</div>
                     <div className='formFullNameWrapper'>
                         <input type="text" value={userPhone}  name="phone" placeholder="Telefona numurs" onChange={(e)=> setUserPhone(e.target.value)}/>
                     </div>
                 </div>
 
                 <div className='NameSectionWrapper'>
-                    <div className='NameLabel'>E-pasts *</div>
+                    <div className='NameLabel'>E-mail *</div>
                     <div className='formFullNameWrapper'>
                         <input type="text" value={userEmail}  name="email" placeholder="E-pasts" onChange={(e)=> setUserEmail(e.target.value)}/>
                     </div>
                 </div>
 
                 <div className='NameSectionWrapper messageWraper'>
-                    <div className='NameLabel'>Ziņojums*</div>
+                    <div className='NameLabel'>Message *</div>
                     <div className='formFullNameWrapper textAreaWrapper'>
                         <textarea value={userMsg} placeholder="Ziņojuma teksts" onChange={(e)=> setuserMsg(e.target.value)}></textarea>
                     </div>
@@ -137,7 +117,7 @@ function EmailForm () {
 
                 <button className='ContactFormSubmitBtn' type="submit" onClick={(e)=> sendEmail(e)}> 
                     <FontAwesomeIcon className='faEnvelopeSendMsg' icon={faEnvelope} /> 
-                    NOSŪTĪT
+                    SEND
                 </button>
             </form>
         </div>

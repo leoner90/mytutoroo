@@ -1,215 +1,146 @@
- 
-@import url('https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@1,200&display=swap');
 @import '../../variables';
 
-.HomeFirstSectionWrapper {
-    align-items: center;
-    flex: 1;
-    padding: 0 $base-padding;
-}
-
-.AboutWrapper {
-    position: relative;
-}
-
-.contactsBtn {
-    animation: 0.75s ease-out 0s 1 getBtn;
-    font-family: 'Source Serif Pro', serif;
-    padding: 5px 7px;
-    border-radius: 10px;
-    border: 1px solid #002b02;
-    text-shadow: 1px 1px #000000;
-    background-color:#3d7b00;  
-    color: #fff;
-    font-weight: bold;
-    min-width: 200px;
-    max-width: 200px;
-    font-size: 1.2vw;
-    cursor: pointer;
-    justify-content: center;
-    margin-top: 20px;
-    &:hover {
-        background-color:#428301;  
-    }
-}
-
-.textAnimation {
-    animation: 0.75s ease-out 0s 1 getText;
-}
-
-.textAnimation{
-  font-size: 2.3vw;
-  font-weight: 100;
-}
-.HomeAboutText {
-
-    // position: absolute;
-    flex-direction: column;
-    z-index: 2;
-    font-family: 'Source Serif Pro', serif;
-    color: #fff;
-    font-size: 2.3vw;
-    text-align: left;
-    letter-spacing: 1px;
-    text-shadow: 0.5px 0.5px #73d216;
-    padding: 1.5% 2% ;
-    background: #00000028;
-    border-radius: 8px;
-    box-shadow: 0 0 3px #000000b9;
-}
-
-.aboutSectionSlider {  
-    background-color: #ccc;
-    background-size: cover;
-    background-position: center center;
-    min-height: 70vh;
-}
-
-
-
-
-
-  .AboutWrapper .slick-current {
-     animation: zoomssr 6s ease-out 0s 1 forwards ;
-  }
-  
-//ANIMATION
-@keyframes zoomssr {
-   
-    0% {
-        transform: scale(1);
-    }
-    100% {
-        transform: scale(1.15);
-    }
-  }
-  
-  .dimmer {
-    background-color: rgba(0, 0, 0, 0.15);
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0; 
-  }
-
-  .SliderWrap {
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
- }
-
-
-.AboutWrapper {
-    min-height: 70vh;
+.infoBar {
+    flex: 2;
     display: flex;
-    slick-slider {
-        
-    }
-    * {
-        display: flex !important;
-        flex: 1
-        ;
-    }
-  
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center;
+    background: transparent;
+    border-radius: 20px 0 0 20px;
+    box-shadow: 0 0 10px #060606;
+    color: #000;
+    background: #eaeaeae3;
+}
+.solarWorksSectionWrapper {
+    overflow-x: hidden;
+    border-radius: 5px;
+    min-height: 70vh;
+    background-color: #fff;
+    background-size: cover;
+    display: flex;
+    padding: 2.5% $base-padding 2.5% $base-padding;
+    text-align: left;
+}
 
-    .slick-slider {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        right: 0;
-        left: 0;
-    }
- 
+.solarPowerWorks {
+    flex: 1;
+    padding: 20px 20px 0 0 ;
+}
+
+.solarPowerWorksImg {
+    background-size: cover;
+    background-repeat: no-repeat;
+    flex: 1;
+    border-radius: 7px;
+    margin: 30px 20px 60px 0 ;
+    box-shadow: 0 0 10px #000;
+}
+
+.worksWeDoContainer {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#solarWorksWeDoContainer {
+    background: #efefef96;
+    box-shadow: 0 0 2px #060606;
+    padding: 30px;
+    
+    flex: 5;
+    display: flex;
+    // flex-direction: column;
+    visibility: hidden;
+}
+
+.SolarPowerWorksHeader {
+    width: 100%;
+    font-size: 1.3vw;
+    color: #191d29;
+    text-shadow: 0.5px 0.5px rgb(0 153 154);
+    text-align: center;
+    letter-spacing: 0.5px;
+    margin: 10px 0 ;
+    font-style: italic;
+    
+}
+
+.solarWorksTransit {
+    animation: 1s ease-out 0s 1 SolarWorksWeDoTransit;
+    visibility:visible !important;
 }
 
 
-
+ 
   @include forSmallDesktop {
-    .HomeFirstSectionWrapper {
- 
-         padding: 0   $small-display-padding ;
+    .solarWorksSectionWrapper {
+         padding: 2.5% $small-display-padding ;
     }
-  
-    .HomeAboutText,
-    .textAnimation {
-      font-size: 2.8vw;
+
+    .solarPowerWorksImg {
+        margin: 18% 20px 18% 0;
     }
-    .aboutSectionSlider, .AboutWrapper{ 
-        min-height: 50vh ;
+
+    .SolarPowerWorksHeader {
+        font-size: 1.4vw;
     }
-  }
-  
-  @include for-tablet-design {
-    .AboutWrapper {
- 
-        padding: 0  $base-padding-tablet;
-        display: flex;
+}
+
+@include for-tablet-design {
+    .SolarPowerWorksHeader {
+        font-size: 1.8vw;
+    }
+
+    .solarWorksSectionWrapper {
+        padding: 2.5%  $base-padding-tablet !important;;
+        flex-direction: column-reverse;
+        min-height: 1vh;
+        padding: 0;
+   }
+
+   
+    .solarPowerWorks {
+        padding-right: 0;
+    }
+
+    .worksWeDoContainer {
         justify-content: center;
-   }
-
-   .contactsBtn {
-    font-size: 2.5;
-   }
- 
-  }
-  
-  @include for-mobile-design {
-    .dimmer {
-        background-color: rgba(0, 0, 0, 0.1);
     }
 
-    .contactsBtn {
+    .solarPowerWorksImg {
+        min-height: 50vh;
+        margin: 8% 20px 8% 20px;
+    }
+
+  }
+  
+
+  @include for-mobile-design{
+
+    .SolarPowerWorksHeader {
         font-size: 3vw;
     }
 
-    .HomeAboutText, 
-    .textAnimation {
-        font-size: 4vw;
+    .solarPowerWorksImg {
+        min-height: 35vh;
+        margin: 8% ;
     }
 
-    .AboutWrapper  {
-        padding: 0 $base-padding-mobile ;
-    
-        
-    }
-  
-    .CompanyName,
-    .navBarLinksWrapper > a {
-      font-size: 3.5vw;
-    }
+    .solarWorksSectionWrapper {
+        padding: 2.5% $base-padding-mobile !important;
+   }
 
-
-
-    .aboutSectionSlider, .AboutWrapper { 
-        min-height: 75vh !important;
-    }
-}
-
-
-@keyframes getBtn {
-    0% {
-      opacity: 0;
-      transform: translateX(100%)
- 
-    }
-    100% {
-      opacity: 1;
-      transform: none;
-      
-    }
+   
   }
 
-  @keyframes getText {
+  @keyframes SolarWorksWeDoTransit{
     0% {
-      opacity: 0;
-      transform: translateX(-100%)
- 
+     
+      transform: translateX(-100%);
     }
     100% {
-      opacity: 1;
-      transform: none;
-      
+       
+      transform: translateX(0);
     }
   }

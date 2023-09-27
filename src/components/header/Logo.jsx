@@ -7,7 +7,6 @@ function Logo () {
             smooth={true}
         >
             <div className="MainLogo" style={{backgroundImage: 'url("img/logo.png")'}}></div>
-            <div className='CompanyName'> MSGrupa</div>
         </Link>
         </div>
     )

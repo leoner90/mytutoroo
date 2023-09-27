@@ -8,7 +8,7 @@ const baseQuery = fetchBaseQuery({
   },
 })
 
-const baseQueryWithRetry = retry(baseQuery, { maxRetries: 2 })
+const baseQueryWithRetry = retry(baseQuery, { maxRetries: 1});
 
 export const api = createApi({
   reducerPath: 'api',
@@ -17,12 +17,11 @@ export const api = createApi({
   tagTypes: ['PROJECTS', 'KEYS'],
 
   endpoints: builder => ({
-
-    signUp: builder.mutation({
+    getTestimonials: builder.mutation({
       query: data => {
         let formData = new FormData();  
         formData.append("data", data);
-        JSON.stringify(data)
+        // JSON.stringify(data)
        
         return {
           mode: "cors",
@@ -30,7 +29,18 @@ export const api = createApi({
           url: 'index.php',
           method: 'POST',
           body: formData
-          
+        }
+      },
+    }),
+
+    sendEmail: builder.mutation({
+      query: data => {   
+        return {
+          mode: "cors",
+          enctype: 'multipart/form-data',
+          url: 'index.php/mail',
+          method: 'POST',
+          body: data
         }
       },
     }),
@@ -39,5 +49,5 @@ export const api = createApi({
 })
 
 export const {
-  useSignUpMutation,
+  useGetTestimonialsMutation,useSendEmailMutation 
 } = api

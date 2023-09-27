@@ -1,27 +1,36 @@
 @import '../../variables';
 
 .electritionWorksWrapper {
-    min-height: 70vh;
+    min-height: 75vh;
     background-color: rgb(25, 29, 41);
-    display: flex;
+    // display: flex;
     padding: 2.5% $base-padding 0 $base-padding;
     text-align: left;
     overflow-x:clip ;
+    background-size: cover;
     color: #fff; 
 }
 
+.termsOfServices{
+  height: 100%;
+  margin: 0 !important;
+  width: 100% !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
 .electritionWorksImg{
-    margin: -5.5% 35px 40px -4.5%;
+    padding: 0 0 0 2%;
     background-size: cover;
     background-repeat: no-repeat;
     flex: 1;
     border-radius: 7px;
-    box-shadow: 0 0 10px #000;
+  
 }
 
 .electricPowerWorks {
     flex: 1;
-    padding: 20px;
+    padding: 10px;
     padding-right: 0;
 }
 
@@ -35,13 +44,17 @@
     
 }
 
-
+.priceswrapper {
+  display: flex;
+}
 .electroWorksTransit {
   animation: 1s ease-out 0s 1 ElectroWorksWeDoTransit;
   visibility:visible !important;
 }
 
 .electricPowerWorks{
+  flex: 1.5;
+ 
   .worksWeDoContainer {
     visibility: hidden;
     .worksWeDoWrapper {
@@ -51,7 +64,7 @@
         color: rgb(25, 29, 41);
         margin-left: 3% ;
         margin-right: 0 ;
-        width: 29.5%;
+        width: 47%;
         .worksWeDoLogoWrapper{
             .worksWeDoWrapperLogo{
                
@@ -85,7 +98,7 @@
 
     .electricPowerWorks .worksWeDoContainer .worksWeDoWrapper {
       width: 42.5%; 
-      margin: 3% 3% 3% 0;
+     
     }
 
 
